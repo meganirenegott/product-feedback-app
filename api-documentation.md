@@ -71,7 +71,7 @@ Data Returned is an Array of Objects
 {
     "feedback_title": "Increase Text Size",
     "category": "Enhancement",
-    "feedback_description": "Bigger letters are easier to read"
+    "feedback_detail": "Bigger letters are easier to read"
 }
 ```
 
