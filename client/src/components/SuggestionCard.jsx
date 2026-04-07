@@ -2,13 +2,13 @@
 
 
 
-function suggestionCard() {
+function suggestionCard({ uniqueSuggestion }) {
     return (
         <>
             <div className='suggestion-card'>
-                <h2></h2>
-                <p></p>
-                <button></button>
+                <h2>{uniqueSuggestion.feedback_title}</h2>
+                <p>{uniqueSuggestion.feedback_detail}</p>
+                <button>{uniqueSuggestion.category}</button>
             </div>
         </>
     );

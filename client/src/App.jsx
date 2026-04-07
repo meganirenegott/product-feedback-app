@@ -1,10 +1,37 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import AddFeedback from './pages/AddFeedback';
 
 function App() {
+  const [allUserSuggestions, setAllUserSuggestions] = useState([]);
+  const [userByCategory, setSuggestionByCategory] = useState([]);
+
+  const getAllSuggestions = async () => {
+    try {
+      const response = await fetch('/api/get-all-suggestions');
+      const data = await response.json();
+      setAllUserSuggestions(data);
+    } catch (error) {
+      console.error('Oopsies! Error fetching data:', error);
+    }
+  };
+
+  const getSuggestionsByCategory = async (category) => {
+    try {
+      const response = await fetch(`/api/get-suggestions-by-category/${category}`);
+      const data = await response.json();
+      setSuggestionByCategory(data);
+    } catch (error) {
+      console.error('Oopsies! Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    getAllSuggestions();
+  }, []);
+
   return (
     <div>
       <nav>
@@ -17,8 +44,18 @@ function App() {
           </li>
         </ul>
       </nav>
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              allUserSuggestions={allUserSuggestions}
+              userByCategory={userByCategory}
+              getSuggestionsByCategory={getSuggestionsByCategory}
+            />
+          }
+        />
         <Route path="/AddFeedback" element={<AddFeedback />} />
       </Routes>
     </div>
