@@ -38,7 +38,7 @@ Data Returned is an Array of Objects
 
 ### 🔹 GET `/get-suggestions-by-category/:category`
 
-**Description:** Write your description here
+**Description:** Retrieves all the suggestions in a specific category
 
 **Example Response:**
 
@@ -63,7 +63,7 @@ Data Returned is an Array of Objects
 
 ### 🔹 POST `/add-one-suggestion`
 
-**Description:** Write your description here
+**Description:** Adds a new suggestion to the database
 
 **Example Request Body:**
 
