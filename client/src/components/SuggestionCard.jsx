@@ -6,9 +6,9 @@ function suggestionCard({ uniqueSuggestion }) {
     return (
         <>
             <div className='suggestion-card'>
-                <h2>{uniqueSuggestion.feedback_title}</h2>
-                <p>{uniqueSuggestion.feedback_detail}</p>
-                <button>{uniqueSuggestion.category}</button>
+                <h2 className="feature-card-title">{uniqueSuggestion.feedback_title}</h2>
+                <p className="feature-card-text">{uniqueSuggestion.feedback_detail}</p>
+                <button className="feature-card-button">{uniqueSuggestion.category}</button>
             </div>
         </>
     );

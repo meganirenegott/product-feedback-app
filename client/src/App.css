@@ -15,7 +15,86 @@
   --light-blue: #62bcfa;
 }
 
-h1 {
-  font-weight: bold;
-  font-size: 24px;
+body {
+  font-family: jost;
+  background-color: var(--soft-grey);
+  margin: 0;
+  padding: 0;
+}
+
+/* Home Page */
+.home-page-wrapper {
+  padding: 0 rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+}
+.header-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 1.6rem;
+}
+.burger-button {
+  color: var(--light-blue);
+  background-color: var(--dark-grey);
+}
+.burger-button :hover{
+  color: var(--white);
+  background-color: var(--light-blue);
+  border: var(--blue);
+}
+
+/* suggestion card styles */
+.suggestion-card {
+background-color: var(--white);
+gap: 2rem;
+}
+
+.feature-card-title {
+  color: var(--navy)
+}
+
+.feature-card-title {
+  color: var(--navy)
+}
+.feature-card-button {
+color: var(--light-blue);
+  background-color: var(--soft-grey);
+}
+/* feedback form */
+.feedback-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 680 px;
+  margin: 0 auto;
+}
+.go-back {
+  color: var(--dark-grey);
+}
+.create-new-feedback {
+  color: var(--navy);
+}
+.feedback-title {
+  color: var(--dark-grey);
+}
+.feedback-description {
+  color: var(--dark-grey);
+}
+/* buttons */
+
+/* form buttons */
+
+.cancel-button {
+  color: var(--white);
+  background-color: var(--navy);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.add-feedback-button {
+  color: var(--white);
+  background-color: var(--purple);
+  border-radius: 12px;
+  padding: 1rem;
 }

@@ -44,12 +44,16 @@ function AddFeedback() {
 
   // render JSX for the form to the page
   return (
-    <>
+    <><div className="feedback-page-wrapper">
+      <a href="/" className="go-back">Go Back</a>
       <form onSubmit={handleSubmit}>
+        <div id="plus">
+          <img src="/Users/megangott/Documents/dev/product-feedback-app/assets/icons/icon-new-feedback.svg" alt="plus sign logo"></img>
+        </div>
         <label>
-          <h1>Create New Feedback</h1>
-          <h2>Feedback Title</h2>
-          <p>Add a short, descriptive headline</p>
+          <h1 classnName="create-new-feedback">Create New Feedback</h1>
+          <h2 className="feedback-title">Feedback Title</h2>
+          <p className="feedback-description">Add a short, descriptive headline</p>
           <input
             type="text"
             name="feedbackTitle"
@@ -73,8 +77,8 @@ function AddFeedback() {
         </label>
 
         <label>
-          <h2>Feedback Detail</h2>
-          <p>Include any specific comments on what should be improved, added, etc.</p>
+          <h2 className="feedback-title">Feedback Detail</h2>
+          <p className="feedback-description">Include any specific comments on what should be improved, added, etc.</p>
           <input
             type="text"
             name="feedbackDetail"
@@ -85,6 +89,7 @@ function AddFeedback() {
         <button type="button" className="cancel-button">Cancel</button>
         <button type="submit" className="add-feedback-button">Add Feedback</button>
       </form>
+      </div>
     </>
   );
 }
