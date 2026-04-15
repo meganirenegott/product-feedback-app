@@ -1,10 +1,13 @@
-// pages/Home.jsx
 import { Link } from "react-router-dom";
 import SuggestionCard from "../components/SuggestionCard.jsx";
 
-function Home({ allUserSuggestions, userByCategory, getSuggestionsByCategory }) {
+function Home({ allUserSuggestions, selectedCategory, setSelectedCategory }) {
   const suggestionsToShow =
-    userByCategory.length > 0 ? userByCategory : allUserSuggestions;
+    selectedCategory === "All"
+      ? allUserSuggestions
+      : allUserSuggestions.filter(
+          (suggestion) => suggestion.category === selectedCategory
+        );
 
   return (
     <div className="home-page-wrapper">
@@ -19,43 +22,43 @@ function Home({ allUserSuggestions, userByCategory, getSuggestionsByCategory }) 
 
           <div className="filter-card">
             <button
-              className="filter-button"
-              onClick={() => getSuggestionsByCategory("All")}
+              className={`filter-button ${selectedCategory === "All" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("All")}
             >
               All
             </button>
 
             <button
-              className="filter-button"
-              onClick={() => getSuggestionsByCategory("UI")}
+              className={`filter-button ${selectedCategory === "UI" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("UI")}
             >
               UI
             </button>
 
             <button
-              className="filter-button"
-              onClick={() => getSuggestionsByCategory("UX")}
+              className={`filter-button ${selectedCategory === "UX" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("UX")}
             >
               UX
             </button>
 
             <button
-              className="filter-button"
-              onClick={() => getSuggestionsByCategory("Enhancement")}
+              className={`filter-button ${selectedCategory === "Enhancement" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("Enhancement")}
             >
               Enhancement
             </button>
 
             <button
-              className="filter-button"
-              onClick={() => getSuggestionsByCategory("Bug")}
+              className={`filter-button ${selectedCategory === "Bug" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("Bug")}
             >
               Bug
             </button>
 
             <button
-              className="filter-button"
-              onClick={() => getSuggestionsByCategory("Feature")}
+              className={`filter-button ${selectedCategory === "Feature" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("Feature")}
             >
               Feature
             </button>
@@ -64,9 +67,7 @@ function Home({ allUserSuggestions, userByCategory, getSuggestionsByCategory }) 
 
         <main className="suggestions-panel">
           <div className="suggestions-heading">
-            <div className="suggestions-heading-left">
-              <h2>{suggestionsToShow.length} Suggestions</h2>
-            </div>
+            <h2>{suggestionsToShow.length} Suggestions</h2>
 
             <Link to="/add-feedback" className="add-feedback-link">
               + Add Feedback
@@ -75,10 +76,10 @@ function Home({ allUserSuggestions, userByCategory, getSuggestionsByCategory }) 
 
           <div className="card-container">
             {suggestionsToShow.length > 0 ? (
-              suggestionsToShow.map((uniqueSuggestion, index) => (
+              suggestionsToShow.map((uniqueSuggestion) => (
                 <SuggestionCard
                   uniqueSuggestion={uniqueSuggestion}
-                  key={index}
+                  key={uniqueSuggestion.id}
                 />
               ))
             ) : (
@@ -92,7 +93,6 @@ function Home({ allUserSuggestions, userByCategory, getSuggestionsByCategory }) 
                   Got a suggestion? Found a bug that needs to be squashed?
                   We love hearing about new ideas to improve our app.
                 </p>
-
                 <Link to="/add-feedback" className="add-feedback-link empty-button">
                   + Add Feedback
                 </Link>
