@@ -48,7 +48,7 @@ function AddFeedback() {
       <a href="/" className="go-back">Go Back</a>
       <form onSubmit={handleSubmit}>
         <div id="plus">
-          <img src="/Users/megangott/Documents/dev/product-feedback-app/assets/icons/icon-new-feedback.svg" alt="plus sign logo"></img>
+          <img src="../assets/icons/icon-new-feedback.svg" alt="plus sign logo"></img>
         </div>
         <label>
           <h1 classnName="create-new-feedback">Create New Feedback</h1>
