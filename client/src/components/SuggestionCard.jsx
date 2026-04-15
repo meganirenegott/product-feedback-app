@@ -1,17 +1,21 @@
-// function for suggestion card
+function SuggestionCard({ uniqueSuggestion }) {
+  return (
+    <div className="suggestion-card">
+      <div className="suggestion-content">
+        <h3 className="feature-card-title">
+          {uniqueSuggestion.feedback_title}
+        </h3>
 
+        <p className="feature-card-description">
+          {uniqueSuggestion.feedback_detail}
+        </p>
 
-
-function suggestionCard({ uniqueSuggestion }) {
-    return (
-        <>
-            <div className='suggestion-card'>
-                <h2 className="feature-card-title">{uniqueSuggestion.feedback_title}</h2>
-                <p className="feature-card-text">{uniqueSuggestion.feedback_detail}</p>
-                <button className="feature-card-button">{uniqueSuggestion.category}</button>
-            </div>
-        </>
-    );
+        <span className="feature-card-button">
+          {uniqueSuggestion.category}
+        </span>
+      </div>
+    </div>
+  );
 }
 
-export default suggestionCard;
+export default SuggestionCard;
