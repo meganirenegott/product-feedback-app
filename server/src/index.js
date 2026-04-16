@@ -4,11 +4,11 @@
 
 import express from "express";
 import pg from "pg";
-import config from "./config.js";
+
 
 const db = new pg.Pool({
-  connectionString: config.databaseUrl + "&uselibpqcompat=true",
-  ssl: true,
+  connectionString: process.env.postgresql://neondb_owner:npg_2EPNf4nptsrI@ep-winter-king-akrjtr88-pooler.c-3.us-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require,
+  ssl: true, // use SSL encryption when connecting to the database
 });
 
 const app = express();
