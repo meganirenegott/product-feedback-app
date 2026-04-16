@@ -18,6 +18,25 @@ function App() {
     }
   };
 
+  const addUserSuggestion = async (newSuggestion) => {
+    try {
+      const response = await fetch("/api/add-one-suggestion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newSuggestion),
+      });
+
+      const createdSuggestion = await response.json();
+
+      setAllUserSuggestions((prev) => [createdSuggestion, ...prev]);
+      setSelectedCategory("All");
+    } catch (error) {
+      console.error("Oopsies! Error adding suggestion:", error);
+    }
+  };
+
   useEffect(() => {
     getAllSuggestions();
   }, []);
@@ -34,7 +53,10 @@ function App() {
           />
         }
       />
-      <Route path="/add-feedback" element={<AddFeedback />} />
+      <Route
+        path="/add-feedback"
+        element={<AddFeedback addUserSuggestion={addUserSuggestion} />}
+      />
     </Routes>
   );
 }

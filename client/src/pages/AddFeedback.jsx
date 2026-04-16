@@ -1,9 +1,8 @@
-// pages/AddFeedback.jsx
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 
-function AddFeedback() {
+function AddFeedback({ addUserSuggestion }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -12,24 +11,6 @@ function AddFeedback() {
     feedbackDetail: "",
   });
 
-  // send form data to the API to add a new suggestion
-  async function addUserSuggestion() {
-    const dataForAPI = {
-      feedbackTitle: formData.feedbackTitle,
-      category: formData.category,
-      feedbackDetail: formData.feedbackDetail,
-    };
-
-    await fetch("/api/add-one-suggestion", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataForAPI),
-    });
-  }
-
-  // handle changes to the form inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -39,10 +20,16 @@ function AddFeedback() {
     }));
   };
 
-  // handle when the user submits the form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addUserSuggestion();
+
+    const dataForAPI = {
+      feedback_title: formData.feedbackTitle,
+      category: formData.category,
+      feedback_detail: formData.feedbackDetail,
+    };
+
+    await addUserSuggestion(dataForAPI);
     navigate("/");
   };
 
