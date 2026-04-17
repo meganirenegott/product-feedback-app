@@ -38,7 +38,7 @@ The application is designed to match a Figma design and is fully responsive acro
 - React Router
 
 **Backend (API)**
-- Node.js / Express (assumed based on endpoints)
+- Node.js / Express 
 - REST API endpoints
 
 ---
@@ -49,6 +49,15 @@ The app interacts with the following endpoints:
 
 - `GET /api/get-all-suggestions`
 - `POST /api/add-one-suggestion`
+- `GET /api/get-suggestions-by-category`
+
+| Resource         | Method | Endpoint                      | Description                              |
+|------------------|--------|-------------------------------|------------------------------------------|
+| `suggestions`    | GET    | /get-all-suggestions          | Retrieves all the suggestions from the database             |
+| `suggestions`    | GET    | /get-suggestions-by-category  | Retrieves all the suggestions in a specific category           |
+| `suggestions`    | POST   | /add-one-suggestion           | Adds a new suggestion to the database          |
+
+---
 
 ---
 
@@ -56,15 +65,24 @@ The app interacts with the following endpoints:
 
 Here is the SQL I used to create my tables: 
 
-![SQL table](<Screenshot 2026-04-16 at 11.45.25 am.png>)
+
+
+```SQL 
+CREATE TABLE suggestions (
+id SERIAL PRIMARY KEY,
+feedback_title VARCHAR UNIQUE NOT NULL,
+category VARCHAR NOT NULL,
+feedback_detail VARCHAR NOT NULL
+);
 
 INSERT INTO suggestions (feedback_title, category, feedback_detail)
 VALUES
-  ('Add Sparkles', 'Enhancement', 'Sparkles for Dopamine'),
-  ('Change Background Color', 'UX', 'A different background color would be easier to read'),
-  ('Light/Dark Mode Toggle', 'UX', 'Lets make a toggle for light and dark mode');
+('Add Sparkles', 'Enhancement', 'Sparkles for Dopamine'),
+('Change Background Color', 'UX', 'A different background color would be easeir to read'),
+('Light/Dark Mode Toggle', 'UX', 'lets make a toggle for the light and dark mode');
+```
 
-🎨 Design
+## 🎨 App Design
 - 🎨 [Figma Designs](https://www.figma.com/design/vxjX8SdBOt21DCD14mrBM9/Product-Feedback-App-Design?node-id=0-1&t=5lLwvPHeEzOLQADS-1)
 
 This project was built based on a Figma design and a live demo reference.
@@ -77,25 +95,24 @@ Focus areas included:
 	•	Component-based layout
 	•	Visual hierarchy
 
-  📱 Responsive Design
+  ## 📱 Responsive Design
 
 The layout adapts based on screen size:
-	•	Desktop: Sidebar + main content layout
-	•	Tablet: Sidebar becomes horizontal
-	•	Mobile: Single column layout
+	-	Desktop: Sidebar + main content layout
+	- Tablet: Sidebar becomes horizontal
+	-	Mobile: Single column layout
 
-⸻
 
-🚧 Challenges & Learnings
-	•	Managing state between pages (lifting state to App.jsx)
-	•	Handling API data consistency (snake_case vs camelCase)
-	•	Debugging filtering logic and UI updates
-	•	Implementing responsive layouts with CSS Grid and Flexbox
 
-⸻
+## 🚧 Challenges & Learnings
+	-	Managing state between pages (lifting state to App.jsx)
+	- Handling API data consistency (snake_case vs camelCase)
+	-	Debugging filtering logic and UI updates
+	-	Implementing responsive layouts with CSS Grid and Flexbox
 
-🔮 Future Improvements
-	•	Add upvote functionality
-	•	Add comment threads for suggestions
-	•	Add edit/delete functionality
-	•	Improve accessibility (ARIA, keyboard navigation)
+
+
+## 🔮 Future Improvements
+	-	Add upvote functionality
+	-	Add edit/delete functionality
+	-	Improve accessibility (ARIA, keyboard navigation)
