@@ -57,6 +57,7 @@ The app interacts with the following endpoints:
 | `suggestions`    | GET    | /get-suggestions-by-category  | Retrieves all the suggestions in a specific category           |
 | `suggestions`    | POST   | /add-one-suggestion           | Adds a new suggestion to the database          |
 
+Here's the link to the full API documentation: https://github.com/meganirenegott/product-feedback-app/blob/main/api-documentation.md
 ---
 
 ---
@@ -85,21 +86,21 @@ VALUES
 ## 🎨 App Design
  [Figma Designs](https://www.figma.com/design/vxjX8SdBOt21DCD14mrBM9/Product-Feedback-App-Design?node-id=0-1&t=5lLwvPHeEzOLQADS-1)
 
-This project was built based on a Figma design and a live demo reference.
+- This project was built based on a Figma design and a live demo reference.
 
 
 
-Focus areas included:
-	•	Consistent spacing and typography
-	•	Interactive hover states
-	•	Component-based layout
-	•	Visual hierarchy
+- Focus areas included:
+	-	Consistent spacing and typography
+	-	Interactive hover states
+	-	Component-based layout
+	-	Visual hierarchy
 
   ## 📱 Responsive Design
 
-The layout adapts based on screen size:
+- The layout adapts based on screen size:
 	-	Desktop: Sidebar + main content layout
-	- Tablet: Sidebar becomes horizontal
+	-  Tablet: Sidebar becomes horizontal
 	-	Mobile: Single column layout
 
 
