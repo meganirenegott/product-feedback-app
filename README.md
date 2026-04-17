@@ -83,7 +83,7 @@ VALUES
 ```
 
 ## 🎨 App Design
-- 🎨 [Figma Designs](https://www.figma.com/design/vxjX8SdBOt21DCD14mrBM9/Product-Feedback-App-Design?node-id=0-1&t=5lLwvPHeEzOLQADS-1)
+ [Figma Designs](https://www.figma.com/design/vxjX8SdBOt21DCD14mrBM9/Product-Feedback-App-Design?node-id=0-1&t=5lLwvPHeEzOLQADS-1)
 
 This project was built based on a Figma design and a live demo reference.
 
@@ -106,7 +106,7 @@ The layout adapts based on screen size:
 
 ## 🚧 Challenges & Learnings
 	-	Managing state between pages (lifting state to App.jsx)
-	- Handling API data consistency (snake_case vs camelCase)
+	-  Handling API data consistency (snake_case vs camelCase)
 	-	Debugging filtering logic and UI updates
 	-	Implementing responsive layouts with CSS Grid and Flexbox
 
